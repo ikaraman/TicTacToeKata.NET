@@ -8,7 +8,7 @@ namespace TicTakToe
         {
             Console.WriteLine("Welcome to the TikTakToe game!");
             Console.WriteLine("Please enter a field size:");
-            var size = Int32.Parse( Console.ReadLine() );
+            var size = int.Parse(Console.ReadLine());
 
             if ( GameFieldValidator.CheckSize(size) )
             {
