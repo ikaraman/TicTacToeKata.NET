@@ -14,6 +14,9 @@ namespace TicTakToe
             {
                 var field = new GameField(size);
                 Console.WriteLine($"New field created with a size of {size}");
+                
+                field.DrawGameField();
+                Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {size},{size}):");
             }
         }
     }
