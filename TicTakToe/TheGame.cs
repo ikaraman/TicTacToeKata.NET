@@ -10,13 +10,32 @@ namespace TicTakToe
             Console.WriteLine("Please enter a field size:");
             var size = int.Parse(Console.ReadLine());
 
-            if ( GameFieldValidator.CheckSize(size) )
+            if (GameFieldValidator.CheckSize(size))
             {
                 var field = new GameField(size);
                 Console.WriteLine($"New field created with a size of {size}");
                 
                 field.DrawGameField();
-                Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {size},{size}):");
+                field.MakeMove();
+                
+                var move = Console.ReadLine();
+                if (MoveValidator.IsPlayerGivingUp(move))
+                {
+                    Console.WriteLine("Player 1 lost the game.");
+                }
+                else
+                {
+                    if (MoveValidator.IsMoveValid(move))
+                    {
+                        Console.WriteLine("Valid move!"); //todo
+                        //update the field
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid move!"); //todo: cell occupied, out of boundaries
+                        //try again
+                    }
+                }
             }
         }
     }
