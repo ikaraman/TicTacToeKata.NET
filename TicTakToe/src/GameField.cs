@@ -4,18 +4,23 @@ namespace TicTakToe
 {
     public class GameField
     {
-        private int Size { get; set; }
         private char[,] Field { get; set; }
 
-        public GameField(int size)
+        public static int Size
         {
-            Size = size;
-            Field = new char[size, size];
+            get => Size;
+            private set => Size = value;
+        }
+
+        public GameField(int value)
+        {
+            Size = value;
             PopulateGameField();
         }
 
         private void PopulateGameField()
         {
+            Field = new char[Size, Size];
             for (var x = 0; x < Size; x++)
             {
                 for (var y = 0; y < Size; y++)

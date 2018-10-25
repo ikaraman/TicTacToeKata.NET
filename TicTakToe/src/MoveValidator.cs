@@ -38,8 +38,8 @@ namespace TicTakToe
             var firstDigit = int.Parse(move.Split(validDelimiter)[0]);
             var secondDigit = int.Parse(move.Split(validDelimiter)[1]);
             
-            var isFirstDigitValid = firstDigit > 0 && firstDigit < 4;
-            var isSecondDigitValid = secondDigit > 0 && secondDigit < 4;
+            var isFirstDigitValid = firstDigit > 0 && firstDigit <= GameField.Size;
+            var isSecondDigitValid = secondDigit > 0 && secondDigit < GameField.Size;
 
             return isFirstDigitValid && isSecondDigitValid;
         }
