@@ -17,6 +17,7 @@ namespace TicTakToe
     public class MoveValidatorIsPlayerGivingUpTest
     {
         [TestCase("q")]
+        [TestCase("'q'")]
         public void ShouldReturnTrueForValidInput(string value)
         {
             Assert.AreEqual(true, MoveValidator.IsPlayerGivingUp(value));

@@ -6,7 +6,7 @@ namespace TicTakToe
         
         public static bool IsPlayerGivingUp(string move)
         {
-            return move == "q";
+            return move == "q" || move == "'q'";
         }
         
         public static bool IsMoveValid(string move)
