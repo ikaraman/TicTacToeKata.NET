@@ -1,31 +1,47 @@
-using System;
-
 namespace TicTakToe
 {
     public static class MoveValidator
     {
+        private const string validDelimiter = ",";
+        
         public static bool IsPlayerGivingUp(string move)
         {
-            if (move == "q") return true;
-
-            return false;
+            return move == "q";
         }
         
         public static bool IsMoveValid(string move)
         {
-            var inputLength = move.Length;
-            var isInputDelimiterValid = (move.Split(",").Length == 2) ? true : false;
-
-            if (inputLength == 3 && isInputDelimiterValid)
+            var isMoveStringLengthValid = IsMoveStringLengthValid(move);
+            var isInputDelimiterValid = IsInputDelimiterValid(move);
+            
+            var isInputDigitsValid = false;
+            if (isMoveStringLengthValid && isInputDelimiterValid)
             {
-                int[] moveDigits = { Int32.Parse(move.Split(",")[0]), Int32.Parse(move.Split(",")[1]) };
-                var isFirstDigitValid = (moveDigits[0] > 0 && moveDigits[0] < 4) ? true : false;
-                var isSecondDigitValid = (moveDigits[1] > 0 && moveDigits[1] < 4) ? true : false;
-                
-                if ( isFirstDigitValid && isSecondDigitValid) return true;
+                isInputDigitsValid = IsInputDigitsValid(move);
             }
 
-            return false;
+            return isMoveStringLengthValid && isInputDelimiterValid && isInputDigitsValid;
+        }
+
+        private static bool IsMoveStringLengthValid(string move)
+        {
+            return move.Length == 3;
+        }
+        
+        private static bool IsInputDelimiterValid(string move)
+        {
+            return move.Split(validDelimiter).Length == 2;
+        }
+        
+        private static bool IsInputDigitsValid(string move)
+        {
+            var firstDigit = int.Parse(move.Split(validDelimiter)[0]);
+            var secondDigit = int.Parse(move.Split(validDelimiter)[1]);
+            
+            var isFirstDigitValid = firstDigit > 0 && firstDigit < 4;
+            var isSecondDigitValid = secondDigit > 0 && secondDigit < 4;
+
+            return isFirstDigitValid && isSecondDigitValid;
         }
     }
 }
