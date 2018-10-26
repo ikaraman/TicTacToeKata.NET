@@ -38,10 +38,5 @@ namespace TicTakToe
             }
             Console.Write(Environment.NewLine);
         }
-        
-        public void MakeMove()
-        {
-            Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {Size},{Size}) or enter 'q' to give up:");
-        }
     }
 }

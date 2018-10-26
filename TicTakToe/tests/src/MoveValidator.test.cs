@@ -1,17 +1,6 @@
 namespace TicTakToe
 {
     using NUnit.Framework;
-
-    [TestFixture]
-    public class GameFieldValidatorTest
-    {
-        [Test]
-         public void CheckSizeShouldReturnTrueForSize3()
-        {
-            Assert.AreEqual(true, GameFieldValidator.CheckSize(3));
-        }
-    }
-    
     
     [TestFixture]
     public class MoveValidatorIsPlayerGivingUpTest
@@ -52,6 +41,7 @@ namespace TicTakToe
         [TestCase("3,3")]
         public void ShouldReturnTrueForValidInput(string value)
         {
+            MoveValidator.FieldSize = 3;
             Assert.AreEqual(true, MoveValidator.IsMoveValid(value));
         }
         
