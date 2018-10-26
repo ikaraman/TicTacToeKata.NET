@@ -1,7 +1,7 @@
+using NUnit.Framework;
+
 namespace TicTakToe
 {
-    using NUnit.Framework;
-    
     [TestFixture]
     public class MoveValidatorIsPlayerGivingUpTest
     {
