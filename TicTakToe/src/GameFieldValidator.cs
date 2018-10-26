@@ -4,7 +4,7 @@ namespace TicTakToe
 {
     public static class GameFieldValidator
     {
-        public static bool CheckSize(int size)
+        public static bool IsFieldSizeValid(int size)
         {
             if (size == 3) return true;
             

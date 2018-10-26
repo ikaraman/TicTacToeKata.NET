@@ -8,7 +8,7 @@ namespace TicTakToe
         [Test]
          public void CheckSizeShouldReturnTrueForSize3()
         {
-            Assert.AreEqual(true, GameFieldValidator.CheckSize(3));
+            Assert.AreEqual(true, GameFieldValidator.IsFieldSizeValid(3));
         }
     }
 }

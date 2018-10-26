@@ -10,7 +10,7 @@ namespace TicTakToe
             Console.WriteLine("Please enter a field size:");
             var size = int.Parse(Console.ReadLine());
 
-            if (GameFieldValidator.CheckSize(size))
+            if (GameFieldValidator.IsFieldSizeValid(size))
             {
                 var field = new GameField(size);
                 Console.WriteLine($"New field created with a size of {size}");
