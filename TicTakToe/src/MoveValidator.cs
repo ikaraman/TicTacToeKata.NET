@@ -2,7 +2,8 @@ namespace TicTakToe
 {
     public static class MoveValidator
     {
-        private const string validDelimiter = ",";
+        private static string _validDelimiter = ",";
+        private static int _fieldSize = 3;
         
         public static bool IsPlayerGivingUp(string move)
         {
@@ -30,16 +31,16 @@ namespace TicTakToe
         
         private static bool IsInputDelimiterValid(string move)
         {
-            return move.Split(validDelimiter).Length == 2;
+            return move[1].ToString() == _validDelimiter;
         }
         
         private static bool IsInputDigitsValid(string move)
         {
-            var firstDigit = int.Parse(move.Split(validDelimiter)[0]);
-            var secondDigit = int.Parse(move.Split(validDelimiter)[1]);
+            var firstDigit = int.Parse(move.Split(_validDelimiter)[0]);
+            var secondDigit = int.Parse(move.Split(_validDelimiter)[1]);
             
-            var isFirstDigitValid = firstDigit > 0 && firstDigit <= GameField.Size;
-            var isSecondDigitValid = secondDigit > 0 && secondDigit < GameField.Size;
+            var isFirstDigitValid = firstDigit > 0 && firstDigit <= _fieldSize;
+            var isSecondDigitValid = secondDigit > 0 && secondDigit <= _fieldSize;
 
             return isFirstDigitValid && isSecondDigitValid;
         }
