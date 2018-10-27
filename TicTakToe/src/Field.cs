@@ -38,5 +38,21 @@ namespace TicTakToe
             }
             Console.Write(Environment.NewLine);
         }
+        
+        public static bool IsMoreMovesPossible()
+        {
+            for (var x = 0; x < Size; x++)
+            {
+                for (var y = 0; y < Size; y++)
+                {
+                    if (GameField[x, y] == '.')
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }
