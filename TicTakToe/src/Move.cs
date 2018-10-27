@@ -2,11 +2,11 @@ using System;
 
 namespace TicTakToe
 {
-    public class Move
+    public static class Move
     {
         public static void MakeMove()
         {
-            Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {GameField.Size},{GameField.Size}) or enter 'q' to give up:");
+            Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {Field.Size},{Field.Size}) or enter 'q' to give up:");
             var move = Console.ReadLine();
             if (MoveValidator.IsPlayerGivingUp(move))
             {
@@ -14,14 +14,15 @@ namespace TicTakToe
                 return;
             }
             
-            if (MoveValidator.IsMoveValid(move))
+            if (MoveValidator.IsPlayerInputValid(move))
             {
-                Console.WriteLine("Valid move!"); //todo
+                Console.WriteLine("Valid input!"); //todo
+                //check if cell occupied
                 //update the field
             }
             else
             {
-                Console.WriteLine("Invalid move!"); //todo: cell occupied, out of boundaries
+                Console.WriteLine("Invalid move!");
                 //try again
             }
         }

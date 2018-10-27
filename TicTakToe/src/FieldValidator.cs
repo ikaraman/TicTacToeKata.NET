@@ -2,7 +2,7 @@ using System;
 
 namespace TicTakToe
 {
-    public static class GameFieldValidator
+    public static class FieldValidator
     {
         public static bool IsFieldSizeValid(int size)
         {

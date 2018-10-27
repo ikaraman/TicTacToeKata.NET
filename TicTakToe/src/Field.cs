@@ -2,12 +2,12 @@ using System;
 
 namespace TicTakToe
 {
-    public class GameField
+    public class Field
     {
         public static int Size { get; private set; }
-        private char[,] Field { get; set; }
+        private char[,] GameField { get; set; }
 
-        public GameField(int value)
+        public Field(int value)
         {
             Size = value;
             PopulateGameField();
@@ -15,12 +15,12 @@ namespace TicTakToe
 
         private void PopulateGameField()
         {
-            Field = new char[Size, Size];
+            GameField = new char[Size, Size];
             for (var x = 0; x < Size; x++)
             {
                 for (var y = 0; y < Size; y++)
                 {
-                    Field[x, y] = '.';
+                    GameField[x, y] = '.';
                 }
             }
         }
@@ -32,7 +32,7 @@ namespace TicTakToe
             {
                 for (var y = 0; y < Size; y++)
                 {
-                    Console.Write(Field[x, y]);
+                    Console.Write(GameField[x, y]);
                 }
                 Console.Write(Environment.NewLine);
             }

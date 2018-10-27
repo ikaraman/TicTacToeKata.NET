@@ -42,7 +42,7 @@ namespace TicTakToe
         public void ShouldReturnTrueForValidInput(string value)
         {
             MoveValidator.FieldSize = 3;
-            Assert.AreEqual(true, MoveValidator.IsMoveValid(value));
+            Assert.AreEqual(true, MoveValidator.IsPlayerInputValid(value));
         }
         
         [TestCase("0,0")]
@@ -54,7 +54,7 @@ namespace TicTakToe
         [TestCase("4,4")]
         public void ShouldReturnFalseForOutOfFieldRangeValues(string value)
         {
-            Assert.AreEqual(false, MoveValidator.IsMoveValid(value));
+            Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
         }
         
         [TestCase("11")]
@@ -62,7 +62,7 @@ namespace TicTakToe
         [TestCase("2 - 2")]
         public void ShouldReturnFalseForIncorrectLengthValues(string value)
         {
-            Assert.AreEqual(false, MoveValidator.IsMoveValid(value));
+            Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
         }
         
         [TestCase("1.1")]
@@ -72,7 +72,7 @@ namespace TicTakToe
         [TestCase("3_3")]
         public void ShouldReturnFalseForIncorrectDelimiterValues(string value)
         {
-            Assert.AreEqual(false, MoveValidator.IsMoveValid(value));
+            Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
         }
         
         [TestCase(",11")]
@@ -81,7 +81,7 @@ namespace TicTakToe
         [TestCase("1,2,")]
         public void ShouldReturnFalseForCorrectDelimiterInTheWrongPlace(string value)
         {
-            Assert.AreEqual(false, MoveValidator.IsMoveValid(value));
+            Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
         }
     }
 }
