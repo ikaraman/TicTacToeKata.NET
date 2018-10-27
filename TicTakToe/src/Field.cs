@@ -5,15 +5,16 @@ namespace TicTakToe
     public class Field
     {
         public static int Size { get; private set; }
-        private char[,] GameField { get; set; }
+        public static char[,] GameField { get; set; }
 
         public Field(int value)
         {
             Size = value;
             PopulateGameField();
+            Console.WriteLine("Let the game begin!");
         }
 
-        private void PopulateGameField()
+        private static void PopulateGameField()
         {
             GameField = new char[Size, Size];
             for (var x = 0; x < Size; x++)
