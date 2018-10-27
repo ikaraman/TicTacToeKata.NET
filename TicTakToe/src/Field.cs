@@ -5,7 +5,7 @@ namespace TicTakToe
     public class Field
     {
         public static int Size { get; private set; }
-        public static char[,] GameField { get; set; }
+        private static char[,] GameField { get; set; }
 
         public Field(int value)
         {
