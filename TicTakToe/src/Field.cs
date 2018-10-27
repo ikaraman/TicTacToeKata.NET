@@ -54,5 +54,13 @@ namespace TicTakToe
 
             return false;
         }
+        
+        public static bool IsCellOccupied(string moveInput)
+        {
+            var x = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
+            var y = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
+
+            return GameField[x, y] != '.';
+        }
     }
 }
