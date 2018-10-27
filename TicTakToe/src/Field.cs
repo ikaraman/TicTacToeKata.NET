@@ -15,6 +15,10 @@ namespace TicTakToe
         }
 
         
+        public static int GetFieldSize()
+        {
+            return Size;
+        }
         
         
         private static void PopulateGameField()
