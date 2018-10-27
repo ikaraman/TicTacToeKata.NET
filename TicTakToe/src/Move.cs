@@ -3,28 +3,27 @@ using System;
 namespace TicTakToe
 {
     public static class Move
-    {
-        public static void MakeMove()
+    { 
+        public static string NextMove()
         {
             Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {Field.Size},{Field.Size}) or enter 'q' to give up:");
-            var move = Console.ReadLine();
-            if (MoveValidator.IsPlayerGivingUp(move))
+            return Console.ReadLine();
+        }
+        
+        public static string GetValidDelimiter()
+        {
+            return ",";
+        }
+
+        public static bool IsPlayerGivingUp(string moveInput)
+        {
+            if (moveInput == "q" || moveInput == "'q'")
             {
-                Console.WriteLine("Player 1 lost the game.");
-                return;
+                Console.WriteLine("Player 1 lost the game."); //todo fix player numbers
+                return true;
             }
             
-            if (MoveValidator.IsPlayerInputValid(move))
-            {
-                Console.WriteLine("Valid input!"); //todo
-                //check if cell occupied
-                //update the field
-            }
-            else
-            {
-                Console.WriteLine("Invalid move!");
-                //try again
-            }
+            return false;
         }
     }
 }

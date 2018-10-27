@@ -3,31 +3,6 @@ using NUnit.Framework;
 namespace TicTakToe
 {
     [TestFixture]
-    public class MoveValidatorIsPlayerGivingUpTest
-    {
-        [TestCase("q")]
-        [TestCase("'q'")]
-        public void ShouldReturnTrueForValidInput(string value)
-        {
-            Assert.AreEqual(true, MoveValidator.IsPlayerGivingUp(value));
-        }
-        
-        [TestCase("Q")]
-        [TestCase("q ")]
-        [TestCase("r")]
-        [TestCase("p")]
-        [TestCase(" ")]
-        [TestCase("\n")]
-        [TestCase("3")]
-        [TestCase("quit")]
-        public void ShouldReturnFalseForInvalidValues(string value)
-        {
-            Assert.AreEqual(false, MoveValidator.IsPlayerGivingUp(value));
-        }
-    }
-    
-    
-    [TestFixture]
     public class MoveValidatorIsMoveValidTest
     {
         [TestCase("1,1")]

@@ -2,13 +2,8 @@ namespace TicTakToe
 {
     public static class MoveValidator
     {
-        private const string ValidDelimiter = ",";
+        private static readonly string ValidDelimiter = Move.GetValidDelimiter();
         public static int FieldSize { private get; set; }
-        
-        public static bool IsPlayerGivingUp(string move)
-        {
-            return move == "q" || move == "'q'";
-        }
         
         public static bool IsPlayerInputValid(string move)
         {
