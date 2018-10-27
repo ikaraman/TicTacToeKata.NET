@@ -3,7 +3,7 @@ using NUnit.Framework;
 namespace TicTakToe
 {
     [TestFixture]
-    public class MoveValidatorIsMoveValidTest
+    public class MoveValidatorIsPlayerInputValidTest
     {
         [TestCase("1,1")]
         [TestCase("1,2")]
@@ -16,7 +16,7 @@ namespace TicTakToe
         [TestCase("3,3")]
         public void ShouldReturnTrueForValidInput(string value)
         {
-            MoveValidator.FieldSize = 3;
+            var field = new Field(3);
             Assert.AreEqual(true, MoveValidator.IsPlayerInputValid(value));
         }
         

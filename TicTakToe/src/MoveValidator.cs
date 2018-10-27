@@ -3,7 +3,7 @@ namespace TicTakToe
     public static class MoveValidator
     {
         private static readonly string ValidDelimiter = Move.GetValidDelimiter();
-        public static int FieldSize { private get; set; }
+        private static readonly int FieldSize = Field.GetFieldSize();
         
         public static bool IsPlayerInputValid(string move)
         {
