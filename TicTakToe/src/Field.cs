@@ -71,7 +71,7 @@ namespace TicTakToe
             var x = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
             var y = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
 
-            return GameField[x, y] != '.';
+            return GameField[x - 1, y - 1] != '.';
         }
     }
 }
