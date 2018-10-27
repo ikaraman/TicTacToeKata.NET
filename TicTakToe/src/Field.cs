@@ -14,6 +14,9 @@ namespace TicTakToe
             Console.WriteLine("Let the game begin!");
         }
 
+        
+        
+        
         private static void PopulateGameField()
         {
             GameField = new char[Size, Size];
@@ -26,6 +29,7 @@ namespace TicTakToe
             }
         }
 
+        
         public void DrawGameField()
         {
             Console.WriteLine("Here's the current board:");
@@ -39,6 +43,7 @@ namespace TicTakToe
             }
             Console.Write(Environment.NewLine);
         }
+        
         
         public static bool IsMoreMovesPossible()
         {
@@ -55,6 +60,7 @@ namespace TicTakToe
 
             return false;
         }
+        
         
         public static bool IsCellOccupied(string moveInput)
         {

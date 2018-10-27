@@ -10,11 +10,13 @@ namespace TicTakToe
             return Console.ReadLine();
         }
         
+        
         public static string GetValidDelimiter()
         {
             return ",";
         }
 
+        
         public static bool IsPlayerGivingUp(string moveInput)
         {
             if (moveInput == "q" || moveInput == "'q'")
