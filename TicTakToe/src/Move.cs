@@ -6,6 +6,7 @@ namespace TicTakToe
     { 
         public static string NextMove()
         {
+            //todo player numeration & symbol update!
             Console.WriteLine($"Player 1, please enter an x,y coordinates (row, column) to place your X (from 1,1 to {Field.Size},{Field.Size}) or enter 'q' to give up:");
             return Console.ReadLine();
         }
@@ -21,7 +22,8 @@ namespace TicTakToe
         {
             if (moveInput == "q" || moveInput == "'q'")
             {
-                Console.WriteLine("Player 1 lost the game."); //todo fix player numbers
+                //todo fix player numbers
+                Console.WriteLine("Player 1 lost the game."); 
                 return true;
             }
             
