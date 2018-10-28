@@ -17,14 +17,8 @@ namespace TicTakToe
                 if(Move.IsPlayerGivingUp(move)) return;
                 if (Move.IsPlayerInputValid(move))
                 {
-                    if (Field.IsCellOccupied(move))
+                    if (Field.IsCellFree(move))
                     {
-                        Console.WriteLine("Whoops, cell is occupied, try again!");
-                        //repeat while loop for another input
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cell is free...");
                         //update cell state
                         //if(Field.IsThereWinner()) return;
                         //update current player

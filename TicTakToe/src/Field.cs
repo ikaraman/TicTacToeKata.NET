@@ -80,12 +80,18 @@ namespace TicTakToe
         }
         
         
-        public static bool IsCellOccupied(string moveInput)
+        public static bool IsCellFree(string moveInput)
         {
             var x = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
             var y = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
 
-            return GameField[x - 1, y - 1] != '.';
+            var isCellFree = GameField[x - 1, y - 1] == '.';
+            if (!isCellFree)
+            {
+                Console.WriteLine("Whoops, cell is occupied, try again!");
+            }
+
+            return isCellFree;
         }
     }
 }
