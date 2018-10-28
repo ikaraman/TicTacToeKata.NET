@@ -6,7 +6,7 @@ namespace TicTakToe
     { 
         public static string NextMove()
         {
-            Console.WriteLine($"Player 1, please enter an x,y coordinates to place your X (from 1,1 to {Field.Size},{Field.Size}) or enter 'q' to give up:");
+            Console.WriteLine($"Player 1, please enter an x,y coordinates (row, column) to place your X (from 1,1 to {Field.Size},{Field.Size}) or enter 'q' to give up:");
             return Console.ReadLine();
         }
         

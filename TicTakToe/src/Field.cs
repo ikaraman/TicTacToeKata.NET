@@ -54,7 +54,7 @@ namespace TicTakToe
         public static void DrawField()
         {
             Console.WriteLine("Here's the current board:");
-            Console.WriteLine("▲ y");
+            Console.WriteLine("▲ ");
             for (var x = 0; x < Size; x++)
             {
                 Console.Write('│');
@@ -66,7 +66,7 @@ namespace TicTakToe
                 }
                 Console.Write(Environment.NewLine);
             }
-            Console.WriteLine("☻ — — — ► x");
+            Console.WriteLine("☻ — — — ► ");
             Console.Write(Environment.NewLine);
         }
         
@@ -84,6 +84,7 @@ namespace TicTakToe
                 }
             }
 
+            Console.WriteLine("There are no more turns available. Game over!");
             return false;
         }
         
