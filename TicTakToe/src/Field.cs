@@ -32,6 +32,16 @@ namespace TicTakToe
         }
         
         
+        public static void UpdateCellState(string moveInput)
+        {
+            var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
+            var column = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
+
+            //todo symbol update
+            GameField[ row - 1, column - 1] = 'X';
+        }
+        
+        
         public static int GetFieldSize()
         {
             return Size;
