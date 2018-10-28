@@ -41,11 +41,11 @@ namespace TicTakToe
         private static void PopulateField()
         {
             GameField = new char[Size, Size];
-            for (var x = 0; x < Size; x++)
+            for (var row = 0; row < Size; row++)
             {
-                for (var y = 0; y < Size; y++)
+                for (var column = 0; column < Size; column++)
                 {
-                    GameField[x, y] = '.';
+                    GameField[row, column] = '.';
                 }
             }
         }
@@ -55,13 +55,13 @@ namespace TicTakToe
         {
             Console.WriteLine("Here's the current board:");
             Console.WriteLine("▲ ");
-            for (var x = 0; x < Size; x++)
+            for (var row = 0; row < Size; row++)
             {
                 Console.Write('│');
                 Console.Write(' ');
-                for (var y = 0; y < Size; y++)
+                for (var column = 0; column < Size; column++)
                 {
-                    Console.Write(GameField[x, y]);
+                    Console.Write(GameField[row, column]);
                     Console.Write(' ');
                 }
                 Console.Write(Environment.NewLine);
@@ -73,11 +73,11 @@ namespace TicTakToe
         
         public static bool IsMoreMovesPossible()
         {
-            for (var x = 0; x < Size; x++)
+            for (var row = 0; row < Size; row++)
             {
-                for (var y = 0; y < Size; y++)
+                for (var column = 0; column < Size; column++)
                 {
-                    if (GameField[x, y] == '.')
+                    if (GameField[row, column] == '.')
                     {
                         return true;
                     }
@@ -91,10 +91,10 @@ namespace TicTakToe
         
         public static bool IsCellFree(string moveInput)
         {
-            var x = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
-            var y = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
+            var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
+            var column = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
 
-            var isCellFree = GameField[x - 1, y - 1] == '.';
+            var isCellFree = GameField[row - 1, column - 1] == '.';
             if (!isCellFree)
             {
                 Console.WriteLine("Whoops, cell is occupied, try again!");
