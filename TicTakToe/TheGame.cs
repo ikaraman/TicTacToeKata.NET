@@ -12,23 +12,24 @@ namespace TicTakToe
             while (Field.IsMoreMovesPossible())
             {
                 Field.DrawField();
+                
                 var move = Move.NextMove();
-                
                 if(Move.IsPlayerGivingUp(move)) return;
-                if(!Move.IsPlayerInputValid(move)) return;
-                
-                if (Field.IsCellOccupied(move))
+                if (Move.IsPlayerInputValid(move))
                 {
-                    Console.WriteLine("Whoops, cell is occupied, try again!");
+                    if (Field.IsCellOccupied(move))
+                    {
+                        Console.WriteLine("Whoops, cell is occupied, try again!");
+                        //repeat while loop for another input
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cell is free...");
+                        //update cell state
+                        //if(Field.IsThereWinner()) return;
+                        //update current player
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Cell is free...");
-                    //update cell state
-                }
-                
-                //if(Field.IsThereWinner()) return;
-                //update current player
             }
         }
     }

@@ -1,3 +1,5 @@
+using System;
+
 namespace TicTakToe
 {
     public static class MoveValidator
@@ -16,7 +18,12 @@ namespace TicTakToe
                 isInputDigitsValid = IsInputDigitsValid(move);
             }
 
-            return isMoveStringLengthValid && isInputDelimiterValid && isInputDigitsValid;
+            var isInputValid = isMoveStringLengthValid && isInputDelimiterValid && isInputDigitsValid;
+            if (!isInputValid)
+            {
+                Console.WriteLine("Coordinates you've entered are not valid. Please, try again!");
+            }
+            return isInputValid;
         }
 
         private static bool IsMoveStringLengthValid(string move)
