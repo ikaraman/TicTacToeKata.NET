@@ -7,13 +7,27 @@ namespace TicTakToe
         public static int Size { get; private set; }
         private static char[,] GameField { get; set; }
 
-        public Field(int value)
+        private Field(int value)
         {
             Size = value;
-            PopulateGameField();
+            PopulateField();
             Console.WriteLine("Let the game begin!");
         }
 
+        public static Field CreateField(int inputSize = 0)
+        {
+            var size = inputSize;
+            if (size == 0)
+            {
+                Console.WriteLine("Please, enter a field size:");
+                var userSizeInput = Console.ReadLine();
+            
+                if (!FieldValidator.IsFieldSizeValid(userSizeInput)) return null;
+                size = int.Parse(userSizeInput);
+            }
+            
+            return new Field(size);
+        }
         
         public static int GetFieldSize()
         {
@@ -21,7 +35,7 @@ namespace TicTakToe
         }
         
         
-        private static void PopulateGameField()
+        private static void PopulateField()
         {
             GameField = new char[Size, Size];
             for (var x = 0; x < Size; x++)
@@ -34,7 +48,7 @@ namespace TicTakToe
         }
 
         
-        public void DrawGameField()
+        public static void DrawField()
         {
             Console.WriteLine("Here's the current board:");
             for (var x = 0; x < Size; x++)

@@ -16,7 +16,7 @@ namespace TicTakToe
         [TestCase("3,3")]
         public void ShouldReturnTrueForValidInput(string value)
         {
-            var field = new Field(3);
+            Field.CreateField(3);
             Assert.AreEqual(true, MoveValidator.IsPlayerInputValid(value));
         }
         
