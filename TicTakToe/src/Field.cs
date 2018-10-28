@@ -54,8 +54,11 @@ namespace TicTakToe
         public static void DrawField()
         {
             Console.WriteLine("Here's the current board:");
+            Console.WriteLine("▲ y");
             for (var x = 0; x < Size; x++)
             {
+                Console.Write('│');
+                Console.Write(' ');
                 for (var y = 0; y < Size; y++)
                 {
                     Console.Write(GameField[x, y]);
@@ -63,6 +66,7 @@ namespace TicTakToe
                 }
                 Console.Write(Environment.NewLine);
             }
+            Console.WriteLine("☻ — — — ► x");
             Console.Write(Environment.NewLine);
         }
         
