@@ -59,6 +59,7 @@ namespace TicTakToe
                 for (var y = 0; y < Size; y++)
                 {
                     Console.Write(GameField[x, y]);
+                    Console.Write(' ');
                 }
                 Console.Write(Environment.NewLine);
             }
