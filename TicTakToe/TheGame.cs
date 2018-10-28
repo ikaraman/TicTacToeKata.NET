@@ -8,16 +8,27 @@ namespace TicTakToe
         {
             Console.WriteLine("Welcome to the TikTakToe game!");
             if (Field.CreateField() == null) return;
-            Field.DrawField();
             
-            if (!FieldValidator.IsFieldSizeValid(userSizeInput)) return;
-            var size = int.Parse(userSizeInput);
+            while (Field.IsMoreMovesPossible())
             {
-                var field = new Field(size);
-                Console.WriteLine($"New field created with a size of {size}");
+                Field.DrawField();
+                var move = Move.NextMove();
                 
-                field.DrawGameField();
-                Move.MakeMove();
+                if(Move.IsPlayerGivingUp(move)) return;
+                if(!Move.IsPlayerInputValid(move)) return;
+                
+                if (Field.IsCellOccupied(move))
+                {
+                    Console.WriteLine("Whoops, cell is occupied, try again!");
+                }
+                else
+                {
+                    Console.WriteLine("Cell is free...");
+                    //update cell state
+                }
+                
+                //if(Field.IsThereWinner()) return;
+                //update current player
             }
         }
     }

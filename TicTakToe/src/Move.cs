@@ -27,5 +27,10 @@ namespace TicTakToe
             
             return false;
         }
+        
+        public static bool IsPlayerInputValid(string moveInput)
+        {
+            return MoveValidator.IsPlayerInputValid(moveInput);
+        }
     }
 }
