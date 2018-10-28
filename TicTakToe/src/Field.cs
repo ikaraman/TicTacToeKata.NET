@@ -7,6 +7,7 @@ namespace TicTakToe
         public static int Size { get; private set; }
         private static char[,] GameField { get; set; }
 
+        
         private Field(int value)
         {
             Size = value;
@@ -14,6 +15,7 @@ namespace TicTakToe
             Console.WriteLine("Let the game begin!");
         }
 
+        
         public static Field CreateField(int inputSize = 0)
         {
             var size = inputSize;
@@ -28,6 +30,7 @@ namespace TicTakToe
             
             return new Field(size);
         }
+        
         
         public static int GetFieldSize()
         {

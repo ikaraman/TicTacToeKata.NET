@@ -7,6 +7,7 @@ namespace TicTakToe
         private static readonly string ValidDelimiter = Move.GetValidDelimiter();
         private static readonly int FieldSize = Field.GetFieldSize();
         
+        
         public static bool IsPlayerInputValid(string move)
         {
             var isMoveStringLengthValid = IsMoveStringLengthValid(move);
@@ -26,15 +27,18 @@ namespace TicTakToe
             return isInputValid;
         }
 
+        
         private static bool IsMoveStringLengthValid(string move)
         {
             return move.Length == 3;
         }
         
+        
         private static bool IsInputDelimiterValid(string move)
         {
             return move[1].ToString() == ValidDelimiter;
         }
+        
         
         private static bool IsInputDigitsValid(string move)
         {
