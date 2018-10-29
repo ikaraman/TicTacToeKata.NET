@@ -118,5 +118,20 @@ namespace TicTakToe
 
             return isCellFree;
         }
+        
+        
+        public static bool IsThereWinner()
+        {
+            var currentPlayerSymbol = Player.GetCurrentPlayerSymbol();
+            //var currentPlayerNumber = Player.GetCurrentPlayerNumber();
+
+            var isThereWinningColumn = FieldValidator.IsThereWinningColumn(currentPlayerSymbol);
+            var isThereWinningRow = FieldValidator.IsThereWinningRow(currentPlayerSymbol);
+            var isThereWinningDiagonal = FieldValidator.IsThereWinningDiagonal(currentPlayerSymbol);
+            
+            var result = isThereWinningColumn || isThereWinningRow || isThereWinningDiagonal;
+            
+            return result;
+        }
     }
 }

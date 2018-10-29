@@ -20,8 +20,8 @@ namespace TicTakToe
                     if (Field.IsCellFree(move))
                     {
                         Field.UpdateCellState(move);
-                        //if(Field.IsThereWinner()) return;
                         //update current player
+                        if (Field.IsThereWinner()) return;
                     }
                 }
             } 
