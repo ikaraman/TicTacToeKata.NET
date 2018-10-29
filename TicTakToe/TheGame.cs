@@ -8,13 +8,13 @@ namespace TicTakToe
         {
             Console.WriteLine("Welcome to the TikTakToe game!");
             if (Field.CreateField() == null) return;
-            
+
             while (Field.IsMoreMovesPossible())
             {
                 Field.DrawField();
-                
+
                 var move = Move.NextMove();
-                if(Move.IsPlayerGivingUp(move)) return;
+                if (Move.IsPlayerGivingUp(move)) return;
                 if (Move.IsPlayerInputValid(move))
                 {
                     if (Field.IsCellFree(move))
@@ -24,7 +24,7 @@ namespace TicTakToe
                         //update current player
                     }
                 }
-            }
+            } 
         }
     }
 }
