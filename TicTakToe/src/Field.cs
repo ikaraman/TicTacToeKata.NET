@@ -4,10 +4,10 @@ namespace TicTakToe
 {
     public class Field
     {
-        public static int Size { get; private set; }
+        private static int Size { get; set; }
         private static char[,] GameField { get; set; }
 
-        
+
         private Field(int value)
         {
             Size = value;
@@ -15,7 +15,7 @@ namespace TicTakToe
             Console.WriteLine("Let the game begin!");
         }
 
-        
+
         public static Field CreateField(int inputSize = 0)
         {
             var size = inputSize;
@@ -30,8 +30,8 @@ namespace TicTakToe
             
             return new Field(size);
         }
-        
-        
+
+
         public static void UpdateCellState(string moveInput)
         {
             var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
@@ -40,14 +40,20 @@ namespace TicTakToe
             //todo symbol update
             GameField[ row - 1, column - 1] = 'X';
         }
-        
-        
+
+
         public static int GetFieldSize()
         {
             return Size;
         }
-        
-        
+
+
+        public static char[,] GetField()
+        {
+            return GameField;
+        }
+
+
         private static void PopulateField()
         {
             GameField = new char[Size, Size];
@@ -60,7 +66,7 @@ namespace TicTakToe
             }
         }
 
-        
+
         public static void DrawField()
         {
             Console.WriteLine("Here's the current board:");
@@ -79,8 +85,8 @@ namespace TicTakToe
             Console.WriteLine("☻ — — — ► ");
             Console.Write(Environment.NewLine);
         }
-        
-        
+
+
         public static bool IsMoreMovesPossible()
         {
             for (var row = 0; row < Size; row++)
@@ -97,8 +103,8 @@ namespace TicTakToe
             Console.WriteLine("There are no more turns available. Game over!");
             return false;
         }
-        
-        
+
+
         public static bool IsCellFree(string moveInput)
         {
             var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
