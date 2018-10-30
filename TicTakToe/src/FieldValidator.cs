@@ -37,6 +37,15 @@ namespace TicTakToe
                 isOneOfColumnsWinner = isOneOfColumnsWinner || isThisColumnWinner;
             }
 
+            if (isOneOfColumnsWinner)
+            {
+                Field.DrawField();
+                
+                Console.WriteLine("************************");
+                Console.WriteLine("****** Game over! ******");
+                Console.WriteLine($"***** Player {Player.GetCurrentPlayerNumber()} won! ****");
+                Console.WriteLine("************************");
+            }
             
             return isOneOfColumnsWinner;
         }
