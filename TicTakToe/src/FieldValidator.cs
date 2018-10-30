@@ -12,32 +12,33 @@ namespace TicTakToe
             Console.WriteLine("Game field has an incorrect size. Please restart the game with a size '3'.");
             return false;
         }
-        
-        
+
+
         public static bool IsThereWinningColumn(char currentPlayerSymbol)
         {
-//            var field = Field.GetField();
-//            var size = Field.GetFieldSize();
-            var result = false;
-            
-//            for (var column = 0; column < size ; column++)
-//            {
-//                List<char> columnValues = new List<char>();
-//                for (var row = 0; row < size; row++)
-//                {
-//                    columnValues.Add(field[row, column]);
-//                }
-//
-//                foreach (var item in columnValues)
-//                {
-//                    if (item != currentPlayerSymbol)
-//                    {
-//                        result = false;
-//                    }
-//                }
-//            }
+            var field = Field.GetField();
+            var size = Field.GetFieldSize();
+            var isOneOfColumnsWinner = false;
 
-            return result;
+            for (var column = 0; column < size; column++)
+            {
+                var isThisColumnWinner = true;
+                for (var row = 0; row < size; row++)
+                {
+                    var isCellEmpty = field[row, column] == Field.GetEmptyCellChar();
+                    var isCellMatchCurrentPlayerSymbol = field[row, column] == currentPlayerSymbol;
+
+                    if (isCellEmpty || !isCellMatchCurrentPlayerSymbol)
+                    {
+                        isThisColumnWinner = false;
+                    }
+                }
+
+                isOneOfColumnsWinner = isOneOfColumnsWinner || isThisColumnWinner;
+            }
+
+            
+            return isOneOfColumnsWinner;
         }
         
         
