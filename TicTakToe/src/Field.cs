@@ -102,7 +102,12 @@ namespace TicTakToe
                 }
             }
 
+            Console.WriteLine("---------------------------------------------");
             Console.WriteLine("There are no more turns available. Game over!");
+            Console.WriteLine("---------------------------------------------");
+            
+            DrawField();
+            
             return false;
         }
 
@@ -121,7 +126,9 @@ namespace TicTakToe
             var isCellFree = GameField[row - 1, column - 1] == GetEmptyCellChar();
             if (!isCellFree)
             {
+                Console.WriteLine("------------------------------------");
                 Console.WriteLine("Whoops, cell is occupied, try again!");
+                Console.WriteLine("------------------------------------");
             }
 
             return isCellFree;
