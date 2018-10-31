@@ -37,8 +37,7 @@ namespace TicTakToe
             var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
             var column = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
 
-            //todo symbol update
-            GameField[ row - 1, column - 1] = 'X';
+            GameField[ row - 1, column - 1] = Player.GetCurrentPlayerSymbol();
         }
 
 
@@ -136,11 +135,25 @@ namespace TicTakToe
 
             var isThereWinningColumn = FieldValidator.IsThereWinningColumn(currentPlayerSymbol);
             var isThereWinningRow = FieldValidator.IsThereWinningRow(currentPlayerSymbol);
-            var isThereWinningDiagonal = FieldValidator.IsThereWinningDiagonal(currentPlayerSymbol);
+            var isThereWinningTopLeftBottomRightDiagonal = FieldValidator.IsThereWinningTopLeftBottomRightDiagonal(currentPlayerSymbol);
+            var isThereWinningBottomLeftTopRightDiagonal = FieldValidator.IsThereWinningBottomLeftTopRightDiagonal(currentPlayerSymbol);
             
-            var result = isThereWinningColumn || isThereWinningRow || isThereWinningDiagonal;
+            var isThereWinner = isThereWinningColumn || 
+                                isThereWinningRow || 
+                                isThereWinningTopLeftBottomRightDiagonal || 
+                                isThereWinningBottomLeftTopRightDiagonal;
             
-            return result;
+            if (isThereWinner)
+            {
+                DrawField();
+                
+                Console.WriteLine("************************");
+                Console.WriteLine("****** Game over! ******");
+                Console.WriteLine($"***** Player {Player.GetCurrentPlayerNumber()} won! ****");
+                Console.WriteLine("************************");
+            }
+
+            return isThereWinner;
         }
     }
 }

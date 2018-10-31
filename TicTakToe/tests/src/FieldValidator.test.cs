@@ -44,5 +44,60 @@ namespace TicTakToe
             
             Assert.AreEqual(true, FieldValidator.IsThereWinningColumn('X'));
         }
+        
+        [Test]
+        public void IsThereWinningRowShouldBeTrueForFirstRow()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("1,1");
+            Field.UpdateCellState("1,2");
+            Field.UpdateCellState("1,3");
+            
+            Assert.AreEqual(true, FieldValidator.IsThereWinningRow('X'));
+        }
+        
+        [Test]
+        public void IsThereWinningRowShouldBeTrueForSecondRow()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("2,1");
+            Field.UpdateCellState("2,2");
+            Field.UpdateCellState("2,3");
+            
+            Assert.AreEqual(true, FieldValidator.IsThereWinningRow('X'));
+        }
+        
+        [Test]
+        public void IsThereWinningRowShouldBeTrueForThirdRow()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("3,1");
+            Field.UpdateCellState("3,2");
+            Field.UpdateCellState("3,3");
+            
+            Assert.AreEqual(true, FieldValidator.IsThereWinningRow('X'));
+        }
+        
+        [Test]
+        public void IsThereWinningTopLeftBottomRightDiagonal()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("1,1");
+            Field.UpdateCellState("2,2");
+            Field.UpdateCellState("3,3");
+            
+            Assert.AreEqual(true, FieldValidator.IsThereWinningTopLeftBottomRightDiagonal('X'));
+        }
+        
+        [Test]
+        public void IsThereWinningBottomLeftTopRightDiagonal()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("3,1");
+            Field.UpdateCellState("2,2");
+            Field.UpdateCellState("1,3");
+            
+            Assert.AreEqual(true, FieldValidator.IsThereWinningBottomLeftTopRightDiagonal('X'));
+        }
     }
 }
