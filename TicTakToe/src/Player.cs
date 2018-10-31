@@ -18,12 +18,7 @@ namespace TicTakToe
        
         public static char GetCurrentPlayerSymbol()
         {
-            if (GetCurrentPlayerNumber() == 1)
-            {
-                return 'X';
-            }
-
-            return 'O';
+            return GetCurrentPlayerNumber() == 1 ? 'X' : 'O';
         }
     }
 }
