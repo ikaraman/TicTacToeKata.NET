@@ -6,9 +6,7 @@ namespace TicTakToe
     { 
         public static string NextMove()
         {
-            Console.WriteLine($"Player {Player.GetCurrentPlayerNumber()}, please enter an x,y coordinates (row, column) " +
-                              $"to place your {Player.GetCurrentPlayerSymbol()} " +
-                              $"(from 1,1 to {Field.GetFieldSize()},{Field.GetFieldSize()}) or enter 'q' to give up:");
+            SysLogger.DisplayMessageToTheConsole("EnterNextMove");
             return Console.ReadLine();
         }
         
@@ -24,7 +22,7 @@ namespace TicTakToe
             if (moveInput == "q" || moveInput == "'q'")
             {
 
-                Console.WriteLine($"Player {Player.GetCurrentPlayerNumber()} lost the game."); 
+                SysLogger.DisplayMessageToTheConsole("PlayerLostGame"); 
                 return true;
             }
             

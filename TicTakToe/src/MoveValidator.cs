@@ -12,6 +12,7 @@ namespace TicTakToe
         {
             var isMoveStringLengthValid = IsMoveStringLengthValid(move);
             var isInputDelimiterValid = IsInputDelimiterValid(move);
+                SysLogger.DisplayMessageToTheConsole("InvalidCoordinates");
             
             var isInputDigitsValid = false;
             if (isMoveStringLengthValid && isInputDelimiterValid)
@@ -24,6 +25,7 @@ namespace TicTakToe
             {
                 Console.WriteLine("Coordinates you've entered are not valid. Please, try again!");
             }
+            if (!isInputValid) SysLogger.DisplayMessageToTheConsole("InvalidCoordinates");
             return isInputValid;
         }
 

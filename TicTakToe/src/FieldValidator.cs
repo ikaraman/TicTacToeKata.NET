@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace TicTakToe
 {
     public static class FieldValidator
@@ -9,7 +6,8 @@ namespace TicTakToe
         {
             if (userSizeInput == "3") return true;
             
-            Console.WriteLine("Game field has an incorrect size. Please restart the game with a size '3'.");
+            SysLogger.DisplayMessageToTheConsole("InvalidFieldSize");
+            
             return false;
         }
 

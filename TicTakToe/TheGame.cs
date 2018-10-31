@@ -6,7 +6,7 @@ namespace TicTakToe
     {
         private static void Main()
         {
-            Console.WriteLine("Welcome to the TikTakToe game!");
+            SysLogger.DisplayMessageToTheConsole("WelcomeToTheGame");
             if (Field.CreateField() == null) return;
 
             while (Field.IsMoreMovesPossible())

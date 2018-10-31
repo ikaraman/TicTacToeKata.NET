@@ -12,7 +12,7 @@ namespace TicTakToe
         {
             Size = value;
             PopulateField();
-            Console.WriteLine("Let the game begin!");
+            SysLogger.DisplayMessageToTheConsole("GameStart");
         }
 
 
@@ -21,7 +21,7 @@ namespace TicTakToe
             var size = inputSize;
             if (size == 0)
             {
-                Console.WriteLine("Please, enter a field size:");
+                SysLogger.DisplayMessageToTheConsole("EnterFieldSize");
                 var userSizeInput = Console.ReadLine();
             
                 if (!FieldValidator.IsFieldSizeValid(userSizeInput)) return null;
@@ -102,10 +102,7 @@ namespace TicTakToe
                 }
             }
 
-            Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("There are no more turns available. Game over!");
-            Console.WriteLine("---------------------------------------------");
-            
+            SysLogger.DisplayMessageToTheConsole("NoMoreTurns");
             DrawField();
             
             return false;
@@ -126,19 +123,16 @@ namespace TicTakToe
             var isCellFree = GameField[row - 1, column - 1] == GetEmptyCellChar();
             if (!isCellFree)
             {
-                Console.WriteLine("------------------------------------");
-                Console.WriteLine("Whoops, cell is occupied, try again!");
-                Console.WriteLine("------------------------------------");
+                SysLogger.DisplayMessageToTheConsole("CellOccupied");
             }
 
             return isCellFree;
         }
-        
-        
+
+
         public static bool IsThereWinner()
         {
             var currentPlayerSymbol = Player.GetCurrentPlayerSymbol();
-            //var currentPlayerNumber = Player.GetCurrentPlayerNumber();
 
             var isThereWinningColumn = FieldValidator.IsThereWinningColumn(currentPlayerSymbol);
             var isThereWinningRow = FieldValidator.IsThereWinningRow(currentPlayerSymbol);
@@ -153,11 +147,7 @@ namespace TicTakToe
             if (isThereWinner)
             {
                 DrawField();
-                
-                Console.WriteLine("************************");
-                Console.WriteLine("****** Game over! ******");
-                Console.WriteLine($"***** Player {Player.GetCurrentPlayerNumber()} won! ****");
-                Console.WriteLine("************************");
+                SysLogger.DisplayMessageToTheConsole("GameOver");
             }
 
             return isThereWinner;
