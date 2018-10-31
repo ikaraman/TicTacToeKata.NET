@@ -6,8 +6,9 @@ namespace TicTakToe
     { 
         public static string NextMove()
         {
-            //todo player numeration & symbol update!
-            Console.WriteLine($"Player 1, please enter an x,y coordinates (row, column) to place your X (from 1,1 to {Field.GetFieldSize()},{Field.GetFieldSize()}) or enter 'q' to give up:");
+            Console.WriteLine($"Player {Player.GetCurrentPlayerNumber()}, please enter an x,y coordinates (row, column) " +
+                              $"to place your {Player.GetCurrentPlayerSymbol()} " +
+                              $"(from 1,1 to {Field.GetFieldSize()},{Field.GetFieldSize()}) or enter 'q' to give up:");
             return Console.ReadLine();
         }
         
@@ -22,8 +23,8 @@ namespace TicTakToe
         {
             if (moveInput == "q" || moveInput == "'q'")
             {
-                //todo fix player numbers
-                Console.WriteLine("Player 1 lost the game."); 
+
+                Console.WriteLine($"Player {Player.GetCurrentPlayerNumber()} lost the game."); 
                 return true;
             }
             
