@@ -15,6 +15,7 @@ namespace TicTakToe
 
                 var move = Move.NextMove();
                 if (Move.IsPlayerGivingUp(move)) return;
+                
                 if (Move.IsPlayerInputValid(move))
                 {
                     if (Field.IsCellFree(move))
