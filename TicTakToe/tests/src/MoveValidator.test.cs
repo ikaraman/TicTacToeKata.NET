@@ -33,6 +33,7 @@ namespace TicTakToe
         }
         
         [TestCase("11")]
+        [TestCase("")]
         [TestCase("1, 2")]
         [TestCase("2 - 2")]
         public void ShouldReturnFalseForIncorrectLengthValues(string value)

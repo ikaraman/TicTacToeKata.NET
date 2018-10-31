@@ -16,6 +16,7 @@ namespace TicTakToe
         [TestCase("q ")]
         [TestCase("r")]
         [TestCase("p")]
+        [TestCase("")]
         [TestCase(" ")]
         [TestCase("\n")]
         [TestCase("3")]
