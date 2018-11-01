@@ -134,15 +134,10 @@ namespace TicTakToe
         {
             var currentPlayerSymbol = Player.GetCurrentPlayerSymbol();
 
-            var isThereWinningColumn = FieldValidator.IsThereWinningColumn(currentPlayerSymbol);
-            var isThereWinningRow = FieldValidator.IsThereWinningRow(currentPlayerSymbol);
-            var isThereWinningTopLeftBottomRightDiagonal = FieldValidator.IsThereWinningTopLeftBottomRightDiagonal(currentPlayerSymbol);
-            var isThereWinningBottomLeftTopRightDiagonal = FieldValidator.IsThereWinningBottomLeftTopRightDiagonal(currentPlayerSymbol);
-            
-            var isThereWinner = isThereWinningColumn || 
-                                isThereWinningRow || 
-                                isThereWinningTopLeftBottomRightDiagonal || 
-                                isThereWinningBottomLeftTopRightDiagonal;
+            var isThereWinner = FieldValidator.IsThereWinningColumn(currentPlayerSymbol) || 
+                                FieldValidator.IsThereWinningRow(currentPlayerSymbol) ||
+                                FieldValidator.IsThereWinningTopLeftBottomRightDiagonal(currentPlayerSymbol) ||
+                                FieldValidator.IsThereWinningBottomLeftTopRightDiagonal(currentPlayerSymbol);
             
             if (isThereWinner)
             {
