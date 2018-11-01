@@ -79,7 +79,7 @@ namespace TicTakToe
                 }
                 Console.Write(Environment.NewLine);
             }
-            Console.WriteLine("▼ ");
+            Console.WriteLine("  ▼ ");
             Console.WriteLine("rows\n");
         }
 
