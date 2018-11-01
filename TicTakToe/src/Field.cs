@@ -60,7 +60,7 @@ namespace TicTakToe
             {
                 for (var column = 0; column < Size; column++)
                 {
-                    GameField[row, column] = '.';
+                    GameField[row, column] = GetEmptyCellChar();
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace TicTakToe
             {
                 for (var column = 0; column < Size; column++)
                 {
-                    if (GameField[row, column] == '.')
+                    if (GameField[row, column] == GetEmptyCellChar())
                     {
                         return true;
                     }
