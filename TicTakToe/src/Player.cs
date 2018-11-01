@@ -1,22 +1,22 @@
 namespace TicTakToe
 {
-    public class Player
+    public static class Player
     {
-        private static int playerNumber = 1;
+        private static int _playerNumber = 1;
         
         public static int GetCurrentPlayerNumber()
         {
-            return playerNumber;
+            return _playerNumber;
         }
         
         public static void SetCurrentPlayerNumber(int number)
         {
-            playerNumber = number;
+            _playerNumber = number;
         }
         
         public static void UpdateCurrentPlayerNumber()
         {
-            playerNumber = (playerNumber == 1) ? 2 : 1;
+            _playerNumber = (_playerNumber == 1) ? 2 : 1;
         }
        
         public static char GetCurrentPlayerSymbol()
