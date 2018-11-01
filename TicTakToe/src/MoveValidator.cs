@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace TicTakToe
 {
     public static class MoveValidator
@@ -39,12 +41,25 @@ namespace TicTakToe
         {
             return move[1].ToString() == ValidDelimiter;
         }
+        
+        
+        private static bool IsDigitsOnly(string input)
+        {
+            var pattern = @"^[\d]+$";
+            
+            return Regex.Match(input, pattern).Success;
+        }
 
 
         private static bool IsInputDigitsValid(string move)
         {
-            var firstDigit = int.Parse(move.Split(ValidDelimiter)[0]);
-            var secondDigit = int.Parse(move.Split(ValidDelimiter)[1]);
+            var firstPart = move.Split(Move.GetValidDelimiter())[0];
+            var secondPart = move.Split(Move.GetValidDelimiter())[1]; 
+            
+            if (!IsDigitsOnly(firstPart) || !IsDigitsOnly(secondPart)) return false;
+            
+            var firstDigit = int.Parse(firstPart);
+            var secondDigit = int.Parse(secondPart);
             
             var isFirstDigitValid = firstDigit > 0 && firstDigit <= FieldSize;
             var isSecondDigitValid = secondDigit > 0 && secondDigit <= FieldSize;

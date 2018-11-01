@@ -21,7 +21,6 @@ namespace TicTakToe
         {
             if (moveInput == "q" || moveInput == "'q'")
             {
-
                 SysLogger.DisplayMessageToTheConsole("PlayerLostGame"); 
                 return true;
             }

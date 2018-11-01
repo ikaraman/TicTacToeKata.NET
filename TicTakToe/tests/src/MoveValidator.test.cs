@@ -46,6 +46,13 @@ namespace TicTakToe
         [TestCase("2 2")]
         [TestCase("2/3")]
         [TestCase("3_3")]
+        [TestCase("3,w")]
+        [TestCase("q,1")]
+        [TestCase(",,,")]
+        [TestCase(",,1")]
+        [TestCase("1,,")]
+        [TestCase(",2,")]
+        [TestCase("12,12d")]
         public void ShouldReturnFalseForIncorrectDelimiterValues(string value)
         {
             Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
@@ -55,9 +62,10 @@ namespace TicTakToe
         [TestCase("12,")]
         [TestCase(",1,2")]
         [TestCase("1,2,")]
-        public void ShouldReturnFalseForCorrectDelimiterInTheWrongPlace(string value)
+        public void ShouldReturnFalseForInvalidInput(string value)
         {
             Assert.AreEqual(false, MoveValidator.IsPlayerInputValid(value));
         }
+        
     }
 }
