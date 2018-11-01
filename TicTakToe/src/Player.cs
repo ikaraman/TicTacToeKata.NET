@@ -2,13 +2,18 @@ using System;
 
 namespace TicTakToe
 {
-    public static class Player
+    public class Player
     {
         private static int playerNumber = 1;
         
         public static int GetCurrentPlayerNumber()
         {
             return playerNumber;
+        }
+        
+        public static void SetCurrentPlayerNumber(int number)
+        {
+            playerNumber = number;
         }
         
         public static void UpdateCurrentPlayerNumber()
