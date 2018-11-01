@@ -1,0 +1,146 @@
+using System;
+
+namespace TicTakToe
+{
+    public class Field
+    {
+        private static int Size { get; set; }
+        private static char[,] GameField { get; set; }
+
+
+        private Field(int value)
+        {
+            Size = value;
+            PopulateField();
+            SysLogger.DisplayMessageToTheConsole("GameStart");
+        }
+
+
+        public static Field CreateField(int inputSize = 0)
+        {
+            var size = inputSize;
+            if (size == 0)
+            {
+                SysLogger.DisplayMessageToTheConsole("EnterFieldSize");
+                var userSizeInput = Console.ReadLine();
+            
+                if (!FieldValidator.IsFieldSizeValid(userSizeInput)) return null;
+                size = int.Parse(userSizeInput);
+            }
+            
+            return new Field(size);
+        }
+
+
+        public static void UpdateCellState(string moveInput)
+        {
+            var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
+            var column = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
+
+            GameField[ row - 1, column - 1] = Player.GetCurrentPlayerSymbol();
+        }
+
+
+        public static int GetFieldSize()
+        {
+            return Size;
+        }
+
+
+        public static char[,] GetField()
+        {
+            return GameField;
+        }
+
+
+        private static void PopulateField()
+        {
+            GameField = new char[Size, Size];
+            for (var row = 0; row < Size; row++)
+            {
+                for (var column = 0; column < Size; column++)
+                {
+                    GameField[row, column] = GetEmptyCellChar();
+                }
+            }
+        }
+
+
+        public static void DrawField()
+        {
+            Console.WriteLine("    1 2 3 ");
+            Console.WriteLine("  ☻ — — — ►  columns");
+            for (var row = 0; row < Size; row++)
+            {
+                Console.Write(row + 1 + " | ");
+                for (var column = 0; column < Size; column++)
+                {
+                    Console.Write(GameField[row, column] + " ");
+                }
+                Console.Write(Environment.NewLine);
+            }
+            Console.WriteLine("  ▼ ");
+            Console.WriteLine("rows\n");
+        }
+
+
+        public static bool IsMoreMovesPossible()
+        {
+            for (var row = 0; row < Size; row++)
+            {
+                for (var column = 0; column < Size; column++)
+                {
+                    if (GameField[row, column] == GetEmptyCellChar())
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            SysLogger.DisplayMessageToTheConsole("NoMoreTurns");
+            DrawField();
+            
+            return false;
+        }
+
+
+        public static char GetEmptyCellChar()
+        {
+            return '.';
+        }
+        
+        
+        public static bool IsCellFree(string moveInput)
+        {
+            var row = int.Parse(moveInput.Split(Move.GetValidDelimiter())[0]); 
+            var column = int.Parse(moveInput.Split(Move.GetValidDelimiter())[1]);
+
+            var isCellFree = GameField[row - 1, column - 1] == GetEmptyCellChar();
+            if (!isCellFree)
+            {
+                SysLogger.DisplayMessageToTheConsole("CellOccupied");
+            }
+
+            return isCellFree;
+        }
+
+
+        public static bool IsThereWinner()
+        {
+            var currentPlayerSymbol = Player.GetCurrentPlayerSymbol();
+
+            var isThereWinner = FieldValidator.IsThereWinningColumn(currentPlayerSymbol) || 
+                                FieldValidator.IsThereWinningRow(currentPlayerSymbol) ||
+                                FieldValidator.IsThereWinningTopLeftBottomRightDiagonal(currentPlayerSymbol) ||
+                                FieldValidator.IsThereWinningBottomLeftTopRightDiagonal(currentPlayerSymbol);
+            
+            if (isThereWinner)
+            {
+                DrawField();
+                SysLogger.DisplayMessageToTheConsole("GameOver");
+            }
+
+            return isThereWinner;
+        }
+    }
+}
