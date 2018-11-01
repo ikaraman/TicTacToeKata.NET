@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace TicTakToe
+namespace TicTakToe.tests
 {
     [TestFixture]
     public class MoveIsPlayerGivingUpTest

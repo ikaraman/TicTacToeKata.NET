@@ -1,7 +1,7 @@
-namespace TicTakToe
-{
-    using NUnit.Framework;
+using NUnit.Framework;
 
+namespace TicTakToe.tests
+{
     [TestFixture]
     public class FieldValidatorTest
     {
