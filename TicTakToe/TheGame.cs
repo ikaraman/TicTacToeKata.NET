@@ -13,7 +13,7 @@ namespace TicTakToe
             {
                 Field.DrawField();
 
-                var move = Move.NextMove();
+                var move = Move.PromptForNextMove();
                 if (Move.IsPlayerGivingUp(move)) return;
                 
                 if (Move.IsPlayerInputValid(move))

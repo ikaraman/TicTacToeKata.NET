@@ -4,7 +4,7 @@ namespace TicTakToe
 {
     public static class Move
     { 
-        public static string NextMove()
+        public static string PromptForNextMove()
         {
             SysLogger.DisplayMessageToTheConsole("EnterNextMove");
             return Console.ReadLine();
