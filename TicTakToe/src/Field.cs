@@ -72,20 +72,15 @@ namespace TicTakToe
             Console.WriteLine("  ☻ — — — ►  columns");
             for (var row = 0; row < Size; row++)
             {
-                Console.Write(row + 1);
-                Console.Write(' ');
-                Console.Write('│');
-                Console.Write(' ');
+                Console.Write(row + 1 + " | ");
                 for (var column = 0; column < Size; column++)
                 {
-                    Console.Write(GameField[row, column]);
-                    Console.Write(' ');
+                    Console.Write(GameField[row, column] + " ");
                 }
                 Console.Write(Environment.NewLine);
             }
             Console.WriteLine("▼ ");
-            Console.WriteLine("rows");
-            Console.Write(Environment.NewLine);
+            Console.WriteLine("rows\n");
         }
 
 
