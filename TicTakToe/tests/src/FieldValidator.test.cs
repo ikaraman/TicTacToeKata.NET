@@ -46,6 +46,15 @@ namespace TicTakToe
         }
         
         [Test]
+        public void IsThereWinningColumnShouldBeFalseWhenNoThereIsNoWinningColumn()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("1,3");
+            
+            Assert.AreEqual(false, FieldValidator.IsThereWinningColumn('O'));
+        }
+        
+        [Test]
         public void IsThereWinningRowShouldBeTrueForFirstRow()
         {
             Field.CreateField(3);
@@ -79,7 +88,17 @@ namespace TicTakToe
         }
         
         [Test]
-        public void IsThereWinningTopLeftBottomRightDiagonal()
+        public void IsThereWinningRowShouldBeFalseIfThereIsNoWinningRow()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("3,1");
+            Field.UpdateCellState("3,2");
+            
+            Assert.AreEqual(false, FieldValidator.IsThereWinningRow('O'));
+        }
+        
+        [Test]
+        public void IsThereWinningTopLeftBottomRightDiagonalShouldReturnTrue()
         {
             Field.CreateField(3);
             Field.UpdateCellState("1,1");
@@ -90,7 +109,17 @@ namespace TicTakToe
         }
         
         [Test]
-        public void IsThereWinningBottomLeftTopRightDiagonal()
+        public void IsThereWinningTopLeftBottomRightDiagonalShouldReturnFalse()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("1,1");
+            Field.UpdateCellState("2,2");
+            
+            Assert.AreEqual(false, FieldValidator.IsThereWinningTopLeftBottomRightDiagonal('O'));
+        }
+        
+        [Test]
+        public void IsThereWinningBottomLeftTopRightDiagonalShouldReturnTrue()
         {
             Field.CreateField(3);
             Field.UpdateCellState("3,1");
@@ -98,6 +127,16 @@ namespace TicTakToe
             Field.UpdateCellState("1,3");
             
             Assert.AreEqual(true, FieldValidator.IsThereWinningBottomLeftTopRightDiagonal('X'));
+        }
+        
+        [Test]
+        public void IsThereWinningBottomLeftTopRightDiagonalShouldReturnFalse()
+        {
+            Field.CreateField(3);
+            Field.UpdateCellState("3,1");
+            Field.UpdateCellState("2,2");
+            
+            Assert.AreEqual(false, FieldValidator.IsThereWinningBottomLeftTopRightDiagonal('O'));
         }
     }
 }
