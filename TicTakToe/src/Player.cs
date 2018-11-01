@@ -1,5 +1,3 @@
-using System;
-
 namespace TicTakToe
 {
     public class Player

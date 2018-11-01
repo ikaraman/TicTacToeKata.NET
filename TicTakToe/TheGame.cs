@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TicTakToe
+﻿namespace TicTakToe
 {
     internal static class TheGame
     {
